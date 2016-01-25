@@ -39,19 +39,14 @@ void changeView() {
   strokeWeight(40/scale);
 
   pushMatrix();
-  //stroke(0, 0, 0);
   beginShape(LINES);
   for (int i=0; i<5; i++) {
     vertex(vtices[i][0]/scale, vtices[i][1]/scale, vtices[i][2]/scale);
     vertex(vtices[i+1][0]/scale, vtices[i+1][1]/scale, vtices[i+1][2]/scale);
-  }
-  endShape();
-  //stroke(0, 0, 255);
-  beginShape(LINES);
-  for (int i=0; i<1; i++) {
-    vertex(vtices[i][0]/scale, vtices[i][1]/scale, vtices[i][2]/scale);
-    vertex(vtices[i+1][0]/scale, vtices[i+1][1]/scale, vtices[i+1][2]/scale);
-  }
+    vertex(vtices[i][0]/scale, -vtices[i][1]/scale, -vtices[i][2]/scale);
+    vertex(vtices[i+1][0]/scale, -vtices[i+1][1]/scale, -vtices[i+1][2]/scale);
+
+}
   endShape();
 
   for (int pj=0; pj<5; pj++) {
@@ -59,7 +54,6 @@ void changeView() {
     rotateZ(pj*2*PI/5);
     rotateX(acos((1/-sqrt(5))));
     rotateY(PI);
-    // stroke(0, 255, 0);
     beginShape(LINES);
     for (int i=0; i<5; i++) {
       vertex(vtices[i][0]/scale, vtices[i][1]/scale, vtices[i][2]/scale);
@@ -69,22 +63,7 @@ void changeView() {
       vertex(vtices[i+1][0]/scale, -vtices[i+1][1]/scale, -vtices[i+1][2]/scale);
     }
     endShape();
-    //stroke(0, 0, 255);
-    beginShape(LINES);
-    for (int i=0; i<1; i++) {
-      vertex(vtices[i][0]/scale, vtices[i][1]/scale, vtices[i][2]/scale);
-      vertex(vtices[i+1][0]/scale, vtices[i+1][1]/scale, vtices[i+1][2]/scale);
-    }
-    endShape();
     popMatrix();
   }
-
-  // stroke(255, 192, 192); 
-  beginShape(LINES);
-  for (int i=0; i<5; i++) {
-    vertex(vtices[i][0]/scale, -vtices[i][1]/scale, -vtices[i][2]/scale);
-    vertex(vtices[i+1][0]/scale, -vtices[i+1][1]/scale, -vtices[i+1][2]/scale);
-  }
-  endShape();
   popMatrix();
 }
